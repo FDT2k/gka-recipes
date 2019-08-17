@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "parameter-validator": "^1.0.5"
+  }
+}
