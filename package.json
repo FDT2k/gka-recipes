@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "parameter-validator": "^1.0.5"
+    "parameter-validator": "^1.0.5",
+    "uuid": "^3.3.3"
   }
 }
