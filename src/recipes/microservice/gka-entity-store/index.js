@@ -20,37 +20,38 @@ exports.v[0] =  (context)=>{
 
   /*return cli.requestInput({name:'microservice',message:'what is your microservice name ?',initial:cli.removePathPrefix(dest_path)}).run()
     .then (answer=>{*/
-      return cli.tasks.group([
-        cli.tasks.git_clone({
-          url:repository,
-          dest:temp_folder,
-          cwd:project_dir,
-          cond:()=>!fs.existsSync(package_dir),
-          describe:()=>`git clone ${repository} into ${temp_folder} cwd: ${project_dir}`
-        }),
-        cli.tasks.git_checkout_tag({
-          tag,
-          cwd:temp_folder,
-          cond:()=>!fs.existsSync(package_dir),
-          describe:()=> `checking out tags/${tag} cwd:${temp_folder}`
-        }),
-        cli.tasks.remove_folder({
-          path:path.join(temp_folder,'.git'),
-          cond:()=>!fs.existsSync(package_dir),
-          describe:()=>`removing ${temp_folder}/.git cwd:${temp_folder}`
-        }),
-        cli.tasks.copy({
-          source:temp_folder,
-          dest: package_dir,
-          cwd:project_dir,
-          cond:()=>!fs.existsSync(package_dir),
-          describe:()=>`copying ${temp_folder} to ${package_dir} cwd: ${project_dir}`,
-        }),
-        cli.tasks.remove_folder({
-          path:path.join(temp_folder,'.git'),
-          cond:()=>!fs.existsSync(package_dir),
-          describe:()=>`removing ${temp_folder} cwd: ${temp_folder}`
-        })
-      ])
+  cli.tasks.group([
+    cli.tasks.git_clone({
+      url:repository,
+      dest:temp_folder,
+      cwd:project_dir,
+      cond:()=>!fs.existsSync(package_dir),
+      describe:()=>`git clone ${repository} into ${temp_folder} cwd: ${project_dir}`
+    }),
+    cli.tasks.git_checkout_tag({
+      tag,
+      cwd:temp_folder,
+      cond:()=>!fs.existsSync(package_dir),
+      describe:()=> `checking out tags/${tag} cwd:${temp_folder}`
+    }),
+    cli.tasks.remove_folder({
+      path:path.join(temp_folder,'.git'),
+      cond:()=>!fs.existsSync(package_dir),
+      describe:()=>`removing ${temp_folder}/.git cwd:${temp_folder}`
+    }),
+    cli.tasks.copy({
+      source:temp_folder,
+      dest: package_dir,
+      cwd:project_dir,
+      cond:()=>!fs.existsSync(package_dir),
+      describe:()=>`copying ${temp_folder} to ${package_dir} cwd: ${project_dir}`,
+    }),
+    cli.tasks.remove_folder({
+      path:path.join(temp_folder,'.git'),
+      cond:()=>!fs.existsSync(package_dir),
+      describe:()=>`removing ${temp_folder} cwd: ${temp_folder}`
+    })
+  ])
+  return cli.apply
     //})
 }

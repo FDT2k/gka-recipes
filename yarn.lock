@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@geekagency/composite-js@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@geekagency/composite-js/-/composite-js-0.4.1.tgz#724e1d8bae3af1751021ac8a9319d4540efdcb6c"
+  integrity sha512-RlrkvdY+C15K+8AvPeyxGvRGBBGdvmNT4GKdNvBYsukPoNB9u0P3Q8Pui++ISxJl2Fsj88h0FQYeJ4vkm/OLlA==
+
 parameter-validator@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/parameter-validator/-/parameter-validator-1.0.5.tgz#ec614297a9625dc4a149610350e8bba255435e55"
