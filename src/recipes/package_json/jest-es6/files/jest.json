@@ -1,0 +1,14 @@
+{
+  "transform": {
+    ".*": "<rootDir>/node_modules/babel-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "es6"
+  ],
+  "coverageReporters": [
+    "json-summary",
+    "text",
+    "lcov"
+  ]
+}
